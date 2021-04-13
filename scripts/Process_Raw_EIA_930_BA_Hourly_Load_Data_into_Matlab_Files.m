@@ -12,7 +12,7 @@
 % The raw data used as input to this script is stored on PIC at
 % /projects/im3/tell/raw_data/EIA_930/.
 %
-%   Output file format: 
+%   .mat output file format: 
 %   C1: MATLAB date number
 %   C2: Year
 %   C3: Month
@@ -22,6 +22,16 @@
 %   C7: Adjusted demand in MWh
 %   C8: Adjusted generation in MWh
 %   C9: Adjusted net interchange with adjacent balancing authorities in MWh
+%
+%   .csv output file format: 
+%   C1: Year
+%   C2: Month
+%   C3: Day
+%   C4: Hour
+%   C5: Forecast demand in MWh
+%   C6: Adjusted demand in MWh
+%   C7: Adjusted generation in MWh
+%   C8: Adjusted net interchange with adjacent balancing authorities in MWh
 
 warning off all; clear all; close all; 
 
@@ -45,8 +55,7 @@ csv_data_output_dir = '/Users/burl878/OneDrive - PNNL/Documents/IMMM/Data/TELL_I
 input_files = dir([data_input_dir,'*.xlsx']);
 
 % Loop over each of the files and extract the variables of interest:
-% for file = 1:size(input_files,1)
-for file = 1
+for file = 1:size(input_files,1)
     % Read in the raw .xlsx file:
     filename = input_files(file,1).name;
     [~,~,Raw_Data] = xlsread([data_input_dir,filename],'Published Hourly Data');
