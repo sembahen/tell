@@ -106,12 +106,12 @@ for i = 1:size(unique_bas,1)
     Data = Data(:,1:6);
     
     % Save the data as a .mat file:
-    save([mat_data_output_dir,BA_Code,'_Population_',num2str(start_year),'_to_',num2str(end_year),'.mat'],'Data');
+    save([mat_data_output_dir,BA_Code,'_Hourly_Population_Data.mat'],'Data');
     
     % Convert the data into a table and save it as a .csv file:
     Output_Table = array2table(Data(:,2:6));
     Output_Table.Properties.VariableNames = {'Year','Month','Day','Hour','Population'};
-    writetable(Output_Table,strcat([csv_data_output_dir,BA_Code,'_Population_',num2str(start_year),'_to_',num2str(end_year),'.csv']),'Delimiter',',','WriteVariableNames',1);
+    writetable(Output_Table,strcat([csv_data_output_dir,BA_Code,'_Hourly_Population_Data.csv']),'Delimiter',',','WriteVariableNames',1);
     clear Output_Table Data BA_Code BA_Long_Name Subset
 end
 clear i unique_bas

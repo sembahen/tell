@@ -46,7 +46,7 @@ warning off all; clear all; close all;
 %              BEGIN USER INPUT SECTION               %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Set some processing flags:
-year_to_process = 2015; % Year of data to process
+year_to_process = 2019; % Year of data to process
 
 % Set the data input and output directories:
 population_data_input_dir = '/Users/burl878/OneDrive - PNNL/Documents/IMMM/Data/TELL_Input_Data/inputs/';
@@ -168,7 +168,7 @@ for i = 1:size(BA_Metadata,1)
        Data(:,10) = roundn(nansum(WSP_Subset,1),-2)'; clear WSP_Subset
        
        % Save the data as a .mat file:
-       save([mat_data_output_dir,BA_Code,'_',num2str(year_to_process),'_Hourly_Meteorology_Data_',num2str(year_to_process),'.mat'],'Data');
+       save([mat_data_output_dir,BA_Code,'_Hourly_Meteorology_Data_',num2str(year_to_process),'.mat'],'Data');
        
        % Convert the data into a table and save it as a .csv file:
        Output_Table = array2table(Data(:,2:10));
