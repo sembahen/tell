@@ -21,7 +21,7 @@ save_images = 1; % (1 = Yes)
 
 % Set the data input and image output directories:
 composite_data_input_dir = '/Users/burl878/OneDrive - PNNL/Documents/IMMM/Data/TELL_Input_Data/inputs/Composite_BA_Hourly_Data/Matlab_Files/';
-image_output_dir = '/Users/burl878/OneDrive - PNNL/Documents/IMMM/Images/TELL/Analysis/BA_Data_Quick_Look_Plots/';
+image_output_dir = '/Users/burl878/OneDrive - PNNL/Documents/IMMM/Images/TELL/Analysis/Composite_BA_Data_Quick_Look_Plots/';
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %              END USER INPUT SECTION                 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -101,7 +101,7 @@ for file = 1:size(input_files,1)
      
     if save_images == 1
        set(gcf,'Renderer','zbuffer'); set(gcf,'PaperPositionMode','auto');
-       print(a,'-dpng','-r150',[image_output_dir,BA_Short_Name,'_Quick_Look_Plots.png']);
+       print(a,'-dpng','-r150',[image_output_dir,BA_Short_Name,'_Composite_BA_Data.png']);
        close(a);
     end
     clear a ans BA_Long_Name BA_Short_Name Data EIA_BA_Number Mean_Load Mean_Temp filename
